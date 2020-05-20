@@ -1,0 +1,14 @@
+#table-container {
+    display: grid;
+    margin: auto;
+  }
+  #singer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    width: 600px;
+  }
+  #singer > div {
+    border: solid;
+    padding: .8rem;
+  }
