@@ -12,3 +12,9 @@
     border: solid;
     padding: .8rem;
   }
+
+  #myInput {
+      width: 50em;
+      height:30px;
+      border-radius: 10px;
+  }

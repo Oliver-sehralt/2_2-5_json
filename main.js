@@ -30,13 +30,23 @@ const displayData = (singers) => {
     singer.innerHTML = "";
     singers.forEach(item => {
         singer.innerHTML += `
-            <div>
-                <p>Name: ${item.name}</p>
-                <p>Age: ${item.country}</p>
-                <p>Period start: ${item.period_active.start}</p>
-                <p>Period end: ${item.period_active.end}</p>
-                <p>Genre: ${item.genre}</p>
-            </div>
+            <table id="myTable">
+                <tr>
+                <td>Name: ${item.name}</td>
+                </tr>
+                <tr>
+                <td>Country: ${item.country}</td>
+                </tr>
+                <tr>
+                <td>Period start: ${item.period_active.start}</td>
+                </tr>
+                <tr>
+                <td>Period end: ${item.period_active.end}</td>
+                </tr>
+                <tr>
+                <td>Genre: ${item.genre}</td>
+                </tr>
+            </table>
         `;
     });
 };
@@ -57,6 +67,8 @@ const sortByCountry = () => {
     console.log(b);
 };
 
+
+
 const sortByGenre = () => {
     let c = singers.sort((a, b) => {
         if (a.genre > b.genre) {
@@ -70,3 +82,24 @@ const sortByGenre = () => {
     displayData(c);
     console.log(c);
 };
+
+function search() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+  
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
